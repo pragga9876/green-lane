@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equil - Green Lane</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">🌱</div>
+            <h1>GREEN LANE</h1>
+        </div>
+        <div class="header-right">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="theme-icon">🌙 Dark</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <h2 class="section-title">Plan Your Route</h2>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <span class="input-icon">📍</span>
+                    <input type="text" id="from-input" class="input-field" placeholder="From where?">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <span class="input-icon">🎯</span>
+                    <input type="text" id="to-input" class="input-field" placeholder="To where?">
+                </div>
+            </div>
+
+            <button class="plan-button" onclick="planRoute()">Plan Route</button>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p style="margin-top: 0.5rem;">Calculating routes...</p>
+            </div>
+
+            <div class="mode-section">
+                <h3 class="section-title">Mode</h3>
+                <select class="mode-select" id="mode-select" onchange="updateRoute()">
+                    <option value="driving">🚗 Driving</option>
+                    <option value="walking">🚶 Walking</option>
+                    <option value="cycling">🚴 Cycling</option>
+                    <option value="transit">🚌 Public Transit</option>
+                </select>
+            </div>
+
+            <div class="routes-container" id="routes-container">
+            </div>
+        </aside>
+
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
